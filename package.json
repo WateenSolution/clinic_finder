@@ -4,16 +4,17 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "build": "cd android && ./gradlew clean && react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "modules": "yarn add react-redux redux-devtools-extension redux-persist @reduxjs/toolkit @react-native-async-storage/async-storage @react-native-clipboard/clipboard @react-native-community/netinfo @react-navigation/bottom-tabs @react-navigation/native @react-navigation/native-stack axios moment formik react-native-gesture-handler react-native-keyboard-aware-scroll-view react-native-safe-area-context react-native-screens yup"
+    "modules": "yarn add react-redux redux-devtools-extension redux-persist @reduxjs/toolkit @react-native-async-storage/async-storage @react-native-clipboard/clipboard @react-navigation/bottom-tabs @react-navigation/native @react-navigation/native-stack axios moment formik react-native-gesture-handler react-native-keyboard-aware-scroll-view react-native-safe-area-context react-native-screens yup"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-native-clipboard/clipboard": "^1.13.2",
-    "@react-native-community/netinfo": "^11.2.1",
+    "@react-native-community/geolocation": "^3.1.0",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
@@ -24,7 +25,9 @@
     "react": "18.1.0",
     "react-native": "0.70.14",
     "react-native-gesture-handler": "^2.14.0",
+    "react-native-indicators": "^0.17.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-maps": "^1.8.4",
     "react-native-safe-area-context": "^4.8.2",
     "react-native-screens": "^3.29.0",
     "react-redux": "^9.0.4",

@@ -1,4 +1,3 @@
-import NetInfo from '@react-native-community/netinfo';
 import {Alert} from 'react-native';
 import {colors, bar_data_talob, pie_data_colors} from '../../utilities';
 import dayjs from 'dayjs';
@@ -14,11 +13,6 @@ const amountConverter = labelValue => {
     : Math.abs(Number(labelValue));
 };
 
-const checkConnected = () => {
-  return NetInfo.fetch().then(state => {
-    return state.isConnected;
-  });
-};
 const capitalizeFirstLetter = string => {
   return string?.charAt(0).toUpperCase() + string?.slice(1).toLowerCase();
 };
@@ -80,7 +74,6 @@ const changeStageName = value => {
 
 export {
   amountConverter,
-  checkConnected,
   responseValidator,
   capitalizeFirstLetter,
   numberWithCommas,
