@@ -37,6 +37,10 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Clinic Finder use this for user location usage</string>
+	<key>NSCameraUsageDescription</key>
+ <string>$(PRODUCT_NAME) needs access to your Camera.</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>For saving photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

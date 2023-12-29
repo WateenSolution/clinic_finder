@@ -1,21 +1,23 @@
+import Geolocation from '@react-native-community/geolocation';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   Alert,
   Linking,
   PermissionsAndroid,
   Platform,
-  View,
   Text,
-  SafeAreaView,
+  View,
 } from 'react-native';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import {ClinicCard, MyStatusBar} from '../../../components';
 import {colors, commonstyles} from '../../../utilities';
-import Geolocation from '@react-native-community/geolocation';
 import styles from './styles';
-import {MyStatusBar} from '../../../components';
+import {CameraScreen, CameraType} from 'react-native-camera-kit';
 
 const Home = ({navigation}) => {
   const [currentLocation, setCurrentLocation] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
   // Redux State
   const mapRef = useRef(null);
   useEffect(() => {
@@ -70,9 +72,23 @@ const Home = ({navigation}) => {
   };
   return (
     <View style={commonstyles.main}>
-      <MyStatusBar />
+      <MyStatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <View>
-        <MapView
+        <View style={styles.headerCon}>
+          <Text style={styles.headerText}>Clinic Finder</Text>
+        </View>
+        <CameraScreen
+          cameraType={CameraType.Back} // front/back(default)
+          // Barcode props
+          scanBarcode={true}
+          onReadCode={event => {
+            console.log(event.nativeEvent.codeStringValue);
+          }} // optional
+          showFrame={true} // (default false) optional, show frame with transparent layer (qr code or barcode will be read on this area ONLY), start animation for scanner,that stoped when find any code. Frame always at center of the screen
+          laserColor="red" // (default red) optional, color of laser in scanner frame
+          frameColor="white" // (default white) optional, color of border of scanner frame
+        />
+        {/* <MapView
           ref={mapRef}
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           style={[styles.map]}
@@ -89,10 +105,22 @@ const Home = ({navigation}) => {
           mapPadding={{
             bottom: 30,
           }}>
-          <View style={styles.headerCon}>
-            <Text style={styles.headerText}>Clinic Finder</Text>
-          </View>
+          <Marker
+            onPress={() => {
+              setShowModal(true);
+            }}
+            coordinate={{
+              latitude: currentLocation?.latitude || 0,
+              longitude: currentLocation?.longitude || 0,
+            }}
+          />
         </MapView>
+        <ClinicCard
+          show={showModal}
+          onPressHide={() => {
+            setShowModal(false);
+          }}
+        /> */}
       </View>
     </View>
   );

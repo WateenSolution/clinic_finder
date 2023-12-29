@@ -402,6 +402,8 @@ PODS:
     - React-jsi (= 0.70.14)
     - React-logger (= 0.70.14)
     - React-perflogger (= 0.70.14)
+  - ReactNativeCameraKit (13.0.0):
+    - React-Core
   - RNCAsyncStorage (1.21.0):
     - React-Core
   - RNCClipboard (1.13.2):
@@ -479,6 +481,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeCameraKit (from `../node_modules/react-native-camera-kit`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -580,6 +583,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeCameraKit:
+    :path: "../node_modules/react-native-camera-kit"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNCClipboard:
@@ -644,6 +649,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: d293c50100c0927379e6a80fab86a219e08792ae
   React-runtimeexecutor: 0d01d03375f996484fcc231ccca3fe604a4a5652
   ReactCommon: dce64235f8548b6e4758647310145f5356c8d0cb
+  ReactNativeCameraKit: 9d46a5d7dd544ca64aa9c03c150d2348faf437eb
   RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
   RNCClipboard: 60fed4b71560d7bfe40e9d35dea9762b024da86d
   RNGestureHandler: 4279931048471f17faf46d912b2e96e10f1da99b
@@ -654,4 +660,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f05567250dc315b8dfcc5164f061fcf1776e2234
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.12.0
