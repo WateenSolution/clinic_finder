@@ -16,7 +16,7 @@ export const InfoCard = ({item, distance}) => {
       </View>
     );
   };
-
+  console.log(item?.opening_hours);
   return (
     <View style={styles.container}>
       <BoxText title={'Hospital Name:'} subtitle={`${item?.name}`} />
@@ -25,7 +25,10 @@ export const InfoCard = ({item, distance}) => {
         subtitle={`${item?.distance?.toFixed(2)} kM`}
       />
       <BoxText title={'Rating:'} subtitle={`${item?.rating} `} />
-      <BoxText title={'Number of Doctors:'} subtitle={`20`} />
+      <BoxText
+        title={'Status:'}
+        subtitle={item?.opening_hours?.open_now ? 'Open' : 'Closed'}
+      />
       <View style={styles.cardCon}>
         <Text style={styles.h1}>{'Address:'}</Text>
       </View>
