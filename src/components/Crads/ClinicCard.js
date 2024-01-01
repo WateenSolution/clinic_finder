@@ -4,14 +4,14 @@ import Modal from 'react-native-modal';
 import {appFonts, appImages, colors, size, spacing} from '../../utilities';
 import {ModalHeader} from '../Headers/ModalHeader';
 import {InfoCard} from './InfoCard';
-export const ClinicCard = ({show = false, onPressHide, paymentInfo}) => {
+export const ClinicCard = ({show = false, onPressHide, item}) => {
   return (
     <View style={styles.container}>
       <Modal onBackdropPress={onPressHide} isVisible={show}>
         <View style={styles.modalContainer}>
           <ModalHeader title={'Info'} onPressHide={onPressHide} />
           <View style={spacing.my4}>
-            <InfoCard />
+            <InfoCard item={item} />
           </View>
         </View>
       </Modal>

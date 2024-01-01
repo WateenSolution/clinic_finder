@@ -30,34 +30,37 @@ export const AppInput = ({
   maxLength = 500,
 }) => {
   return (
-    <View style={styles.container}>
-      {title && <Text style={styles.titleStyle}>{title || ''}</Text>}
-      <TextInput
-        value={value}
-        style={[
-          styles.inputStyle,
-          {
-            fontSize: fontSize || size.large,
-            letterSpacing: letterSpacing,
-            color: textColor || colors.b1,
-          },
-        ]}
-        placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor || colors.g7}
-        keyboardType={keyboardType}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onChangeText={onChangeText}
-        editable={editable}
-        onPressIn={onPressIn}
-        autoCapitalize={autoCapitalize}
-        autoComplete={autoComplete}
-        autoCorrect={autoCorrect}
-        disabled={editable}
-        maxLength={maxLength}
-        secureTextEntry={secureTextInput}
-      />
-    </View>
+    <>
+      <View style={styles.container}>
+        {title && <Text style={styles.titleStyle}>{title || ''}</Text>}
+        <TextInput
+          value={value}
+          style={[
+            styles.inputStyle,
+            {
+              fontSize: fontSize || size.large,
+              letterSpacing: letterSpacing,
+              color: textColor || colors.b1,
+            },
+          ]}
+          placeholder={placeholder}
+          placeholderTextColor={placeholderTextColor || colors.g7}
+          keyboardType={keyboardType}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChangeText={onChangeText}
+          editable={editable}
+          onPressIn={onPressIn}
+          autoCapitalize={autoCapitalize}
+          autoComplete={autoComplete}
+          autoCorrect={autoCorrect}
+          disabled={editable}
+          maxLength={maxLength}
+          secureTextEntry={secureTextInput}
+        />
+      </View>
+      {error && <Text style={styles.errorText}>{error}</Text>}
+    </>
   );
 };
 
@@ -80,5 +83,10 @@ const styles = StyleSheet.create({
     fontSize: size.large,
     color: colors.b1,
     marginBottom: 15,
+  },
+  errorText: {
+    fontSize: size.xsmall,
+    paddingLeft: 5,
+    color: colors.red,
   },
 });

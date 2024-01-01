@@ -4,7 +4,7 @@ import {colors, HP, size, WP} from '../../../utilities';
 const styles = StyleSheet.create({
   imageContainer: {
     alignItems: 'center',
-    marginBottom: HP('8'),
+    marginBottom: HP('2'),
   },
 
   checkboxContainer: {
@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
   label: {
     fontSize: size.tiny,
     color: colors.black,
+  },
+  h1: {
+    fontWeight: '700',
+    fontSize: size.h5,
+    marginTop: 50,
   },
   checkbox: {
     padding: 0,

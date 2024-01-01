@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {WP, colors, size} from '../../utilities';
 
-export const InfoCard = ({}) => {
+export const InfoCard = ({item, distance}) => {
   const BoxText = ({title, subtitle}) => {
     return (
       <View>
@@ -19,15 +19,18 @@ export const InfoCard = ({}) => {
 
   return (
     <View style={styles.container}>
-      <BoxText title={'Hospital Name:'} subtitle={`${'Al Haram Hospital'}`} />
-      <BoxText title={'Distance:'} subtitle={`${10} kM`} />
-      <BoxText title={'Number of Beds:'} subtitle={`${200} `} />
+      <BoxText title={'Hospital Name:'} subtitle={`${item?.name}`} />
+      <BoxText
+        title={'Distance:'}
+        subtitle={`${item?.distance?.toFixed(2)} kM`}
+      />
+      <BoxText title={'Rating:'} subtitle={`${item?.rating} `} />
       <BoxText title={'Number of Doctors:'} subtitle={`20`} />
       <View style={styles.cardCon}>
         <Text style={styles.h1}>{'Address:'}</Text>
       </View>
       <View style={{paddingHorizontal: WP('2')}}>
-        <Text style={styles.h2}>{'Opposite Masjid Al Nabwi Madinah'}</Text>
+        <Text style={styles.h2}>{item?.vicinity}</Text>
       </View>
     </View>
   );
@@ -43,14 +46,12 @@ const styles = StyleSheet.create({
   },
   cardCon: {
     padding: WP('2'),
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
   },
   h1: {
     fontSize: size.xsmall,
     color: colors.black,
     fontWeight: '600',
+    marginVertical: 2,
   },
   h2: {
     fontSize: size.xsmall,

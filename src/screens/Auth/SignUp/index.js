@@ -8,6 +8,8 @@ import {
   commonstyles,
   loginFormFields,
   LoginVS,
+  signupFormFields,
+  SignUpVS,
 } from '../../../utilities';
 import styles from './styles';
 
@@ -20,9 +22,9 @@ const SignUp = ({navigation}) => {
         <AuthHeader />
         <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
           <Formik
-            validationSchema={LoginVS}
-            initialValues={loginFormFields}
-            onSubmit={() => navigation?.replace('App')}>
+            validationSchema={SignUpVS}
+            initialValues={signupFormFields}
+            onSubmit={() => navigation?.replace('VerifyUser')}>
             {({
               handleChange,
               handleBlur,
@@ -35,29 +37,76 @@ const SignUp = ({navigation}) => {
               <View>
                 <View style={styles.imageContainer}>
                   <Image source={appImages.appTextLogo} />
+                  <Text style={styles.h1}>Create your account</Text>
                 </View>
                 <AppInput
-                  label={'Username'}
-                  name="username"
-                  value={values.username}
-                  error={errors.username}
-                  touched={touched.username}
-                  onChangeText={handleChange('username')}
+                  placeholder={'First name'}
+                  label={'First Name'}
+                  name="firstname"
+                  value={values.firstName}
+                  error={errors.firstName}
+                  touched={touched.firstName}
+                  onChangeText={handleChange('firstName')}
                 />
                 <AppInput
+                  placeholder={'Last name'}
+                  label={'Last Name'}
+                  name="lastname"
+                  value={values.lastName}
+                  error={errors.lastName}
+                  touched={touched.lastName}
+                  onChangeText={handleChange('lastName')}
+                />
+                <AppInput
+                  placeholder={'Email address'}
+                  label={'Email'}
+                  name="email"
+                  value={values.email}
+                  error={errors.email}
+                  touched={touched.email}
+                  onChangeText={handleChange('email')}
+                />
+                <AppInput
+                  placeholder={'Passport number'}
+                  label={'Passport Number'}
+                  name="passport_no"
+                  value={values.passport_no}
+                  error={errors.passport_no}
+                  touched={touched.passport_no}
+                  onChangeText={handleChange('passport_no')}
+                />
+                <AppInput
+                  placeholder={'Visa number'}
+                  label={'Visa Number'}
+                  name="visa_no"
+                  value={values.visa_no}
+                  error={errors.visa_no}
+                  touched={touched.visa_no}
+                  onChangeText={handleChange('visa_no')}
+                />
+                <AppInput
+                  placeholder={'Password'}
                   label={'Password'}
                   name="password"
                   value={values.password}
                   error={errors.password}
                   touched={touched.password}
                   onChangeText={handleChange('password')}
-                  secureTextEntry={true}
+                  secureTextInput={true}
                 />
 
                 <View style={styles.rememberMainContainer}></View>
-                <AppButton title={'Login'} onPress={handleSubmit} />
-                <Text style={styles.reserveText}>
-                  2022 wateen.com, inc. All rights reserved.
+                <AppButton title={'SignUp'} onPress={handleSubmit} />
+                <Text
+                  onPress={() => {
+                    navigation?.navigate('Login');
+                  }}
+                  style={styles.reserveText}>
+                  Already have an account?
+                  <Text style={[styles.reserveText, {fontWeight: 'bold'}]}>
+                    {' '}
+                    Login
+                  </Text>
                 </Text>
               </View>
             )}

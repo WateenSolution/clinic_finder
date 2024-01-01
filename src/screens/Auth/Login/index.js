@@ -35,18 +35,19 @@ const Login = ({navigation}) => {
               <View>
                 <View style={styles.imageContainer}>
                   <Image source={appImages.appTextLogo} />
+                  <Text style={styles.h1}>Login with your account</Text>
                 </View>
                 <AppInput
-                  placeholder={'Enter Username'}
-                  label={'Username'}
-                  name="username"
-                  value={values.username}
-                  error={errors.username}
-                  touched={touched.username}
-                  onChangeText={handleChange('username')}
+                  placeholder={'Email address'}
+                  label={'Email'}
+                  name="email"
+                  value={values.email}
+                  error={errors.email}
+                  touched={touched.email}
+                  onChangeText={handleChange('email')}
                 />
                 <AppInput
-                  placeholder={'Enter Password'}
+                  placeholder={'Password'}
                   label={'Password'}
                   name="password"
                   value={values.password}
@@ -58,8 +59,16 @@ const Login = ({navigation}) => {
 
                 <View style={styles.rememberMainContainer}></View>
                 <AppButton title={'Login'} onPress={handleSubmit} />
-                <Text style={styles.reserveText}>
-                  2024 wateen.com, inc. All rights reserved.
+                <Text
+                  onPress={() => {
+                    navigation?.navigate('SignUp');
+                  }}
+                  style={styles.reserveText}>
+                  Don't have account?
+                  <Text style={[styles.reserveText, {fontWeight: 'bold'}]}>
+                    {' '}
+                    SignUp
+                  </Text>
                 </Text>
               </View>
             )}
